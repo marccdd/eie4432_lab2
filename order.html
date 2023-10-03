@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            21089804D_Drink Ordering System
+        </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="order.js"></script>
+    </head>
+    <body>
+        <header class="text-bg-dark text-center fs-2 fw-bold p-3">
+            Drink Ordering System
+        </header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+                    <div class="navbar-nav grid gap-1">
+                        <a class="nav-link p-2 g-col-6" href="index.html">Home</a>
+                        <a class="nav-link active link-primary fw-bold p-2 g-col-6" aria-current="page" href="#">Order</a>
+                        <a class="nav-link p-2 g-col-6" href="reserve.html">Reserve a Table</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container py-4">
+            <form id="event" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="drink" class="form-label">Drink:</label>
+                    <select class="form-select" name="drink" id="drink">
+                        <option selected value="default">Please Select</option>
+                        <option value="1">Bubble Milktea</option>
+                        <option value="2">Iced Latte</option>
+                        <option value="3">Pineapple Juice</option>
+                    </select>
+                </div>
+                <div class="mb-3 row d-inline-block d-lg-flex">
+                    <div class="col d-flex d-lg-block">
+                        <label for="size" class="form-label">Size:</label>
+                        <div class="mb-2 ms-2 ms-lg-0">
+                            <input type="radio" class="btn-check" name="size" id="small" value="s" autocomplete="off" onchange="calculatePrice()">
+                            <label class="btn btn-outline-success" for="small">Small</label>
+                        </div>
+                        <div class="mb-2 ms-2 ms-lg-0">
+                            <input type="radio" class="btn-check" name="size" id="medium" value="m" autocomplete="off" onchange="calculatePrice()">
+                            <label class="btn btn-outline-success" for="medium">Medium</label>
+                        </div>
+                        <div class="mb-2 ms-2 ms-lg-0">
+                            <input type="radio" class="btn-check" name="size" id="large" value="l" autocomplete="off" onchange="calculatePrice()">
+                            <label class="btn btn-outline-success" for="large">Large</label>
+                        </div>
+                    </div>
+                    <div class="col d-flex d-lg-block">
+                        <label for="ice" class="form-label">Ice:</label>
+                        <div class="mb-2 ms-2 ms-lg-0">
+                            <input type="radio" class="btn-check" name="ice" id="normal" value="normal" autocomplete="off">
+                            <label class="btn btn-outline-success" for="normal">Normal</label>
+                        </div>
+                        <div class="mb-2 ms-2 ms-lg-0">
+                            <input type="radio" class="btn-check" name="ice" id="less" value="less" autocomplete="off">
+                            <label class="btn btn-outline-success" for="less">Less</label>
+                        </div>
+                        <div class="mb-2 ms-2 ms-lg-0">
+                            <input type="radio" class="btn-check" name="ice" id="noice" value="noice" autocomplete="off">
+                            <label class="btn btn-outline-success" for="noice">Without Ice</label>
+                        </div>
+                    </div>
+                    <div class="col d-flex d-lg-block">
+                        <label for="sweetness" class="form-label">Sweetness:</label>
+                        <div class="mb-2 ms-2 ms-lg-0">
+                            <input type="radio" class="btn-check" name="sweetness" id="100" value="100" autocomplete="off">
+                            <label class="btn btn-outline-success" for="100">100%</label>
+                        </div>
+                        <div class="mb-2 ms-2 ms-lg-0">
+                            <input type="radio" class="btn-check" name="sweetness" id="50" value="50" autocomplete="off">
+                            <label class="btn btn-outline-success" for="50">50%</label>
+                        </div>
+                        <div class="mb-2 ms-2 ms-lg-0">
+                            <input type="radio" class="btn-check" name="sweetness" id="0" value="0" autocomplete="off">
+                            <label class="btn btn-outline-success" for="0">0%</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="mb-3 fs-3 fw-bold" id="price">
+                        Price $<span id="price">0</span>
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="placeOrder(event)">Place Order</button>
+                    <button type="reset" class="btn btn-warning">Reset</button>
+                </div>
+            </form>
+        </div>
+        <footer class="text-bg-dark text-center p-3 fixed-bottom">
+            &copy; 21089804D Chen Chun Long - EIE4432 Lab 2 Project 
+        </footer>
+    </body>
+</html>
